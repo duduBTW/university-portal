@@ -1,7 +1,10 @@
-import { Outlet, createBrowserRouter, defer } from "react-router-dom";
+import { createBrowserRouter, defer } from "react-router-dom";
 import HomePage from "./home/HomePage";
 import { fetchCouse } from "../data/fetcher";
-import Layout from "./Layout";
+import Layout from "./layout/Layout";
+import VideosPage from "./videos/VideosPage";
+
+export const COURSE_ROUTE_ID = "course";
 
 async function couseLoader() {
   return defer({
@@ -15,14 +18,19 @@ const router = createBrowserRouter([
     element: <div>Not found</div>,
   },
   {
-    id: "course",
-    path: "/course",
+    id: COURSE_ROUTE_ID,
+    path: "/:id",
     loader: couseLoader,
     Component: Layout,
     children: [
       {
         index: true,
         Component: HomePage,
+      },
+      {
+        index: false,
+        path: "video",
+        Component: VideosPage,
       },
     ],
   },
