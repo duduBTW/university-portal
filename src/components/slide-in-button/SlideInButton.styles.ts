@@ -5,9 +5,19 @@ type StyledSlideInButtonStyleProps = {
   isActive: boolean;
 };
 
-export const StyledSlideInButton = styled(
-  Button
-)<StyledSlideInButtonStyleProps>`
+export const StyledSlideInButton = styled(Button).withConfig({
+  shouldForwardProp: (prop) => {
+    switch (prop as keyof StyledSlideInButtonStyleProps) {
+      case "isActive": {
+        return false;
+      }
+
+      default: {
+        return true;
+      }
+    }
+  },
+})<StyledSlideInButtonStyleProps>`
   position: absolute;
   bottom: 12px;
   left: 12px;
