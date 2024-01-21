@@ -42,17 +42,3 @@ export const Description = styled.p`
   line-height: 160%;
   max-width: 80ch;
 `;
-export const Left = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  user-select: none;
-`;
-export const Right = styled.div`
-  position: fixed;
-  right: 0;
-  top: 0;
-  pointer-events: none;
-  user-select: none;
-`;

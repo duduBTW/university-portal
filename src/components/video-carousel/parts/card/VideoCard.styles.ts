@@ -1,18 +1,10 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Button from "../button/Button";
 
 type ContainerStyleProps = {
   isSelected: boolean;
 };
 
-export const WatchButton = styled(Button)`
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  width: calc(100% - 32px);
-  box-sizing: border-box;
-`;
 export const ThumbnailWrapper = styled.div`
   position: relative;
 `;
@@ -24,6 +16,7 @@ export const Thumbnail = styled.img`
   user-select: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: bottom center;
 `;
 export const Title = styled.p`
   color: var(--text-900);

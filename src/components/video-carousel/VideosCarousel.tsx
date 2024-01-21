@@ -1,90 +1,37 @@
 import useEmblaCarousel from "embla-carousel-react";
-import { EmblaCarouselType } from "embla-carousel";
 import { Container, Content } from "./VideosCarousel.styles";
-import VideoCard from "../video-card/VideoCard";
-import { useCallback, useEffect, useState } from "react";
-import { flushSync } from "react-dom";
+import VideoCard from "./parts/card/VideoCard";
+import {
+  useCarouselSelectedIndex,
+  useCarouselTweenValues,
+} from "./VideosCarousel.utils";
+import { Media } from "../../data/fetcher";
 
-const TWEEN_FACTOR = 4.2;
+type VideosCarouselProps = {
+  videos: Media[];
+};
 
-const numberWithinRange = (number: number, min: number, max: number): number =>
-  Math.min(Math.max(number, min), max);
+function VideosCarousel(props: VideosCarouselProps) {
+  const { videos } = props;
 
-function VideosCarousel({
-  cards,
-}: {
-  cards: {
-    id: number;
-    title: string;
-    thumbnail: string;
-  }[];
-}) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     skipSnaps: true,
     duration: 32,
   });
 
-  const [tweenValues, setTweenValues] = useState<number[]>([]);
-
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const onScroll = useCallback(() => {
-    if (!emblaApi) return;
-
-    const engine = emblaApi.internalEngine();
-    const scrollProgress = emblaApi.scrollProgress();
-
-    const styles = emblaApi.scrollSnapList().map((scrollSnap, index) => {
-      let diffToTarget = scrollSnap - scrollProgress;
-
-      if (engine.options.loop) {
-        engine.slideLooper.loopPoints.forEach((loopItem) => {
-          const target = loopItem.target();
-          if (index === loopItem.index && target !== 0) {
-            const sign = Math.sign(target);
-            if (sign === -1) diffToTarget = scrollSnap - (1 + scrollProgress);
-            if (sign === 1) diffToTarget = scrollSnap + (1 - scrollProgress);
-          }
-        });
-      }
-      const tweenValue = 1 - Math.abs(diffToTarget * TWEEN_FACTOR);
-      return numberWithinRange(tweenValue, 0, 1);
-    });
-    setTweenValues(styles);
-  }, [emblaApi, setTweenValues]);
-
-  const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, []);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    onSelect(emblaApi);
-    emblaApi.on("reInit", onSelect);
-    emblaApi.on("select", onSelect);
-  }, [emblaApi, onSelect]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    onScroll();
-    emblaApi.on("scroll", () => {
-      flushSync(() => onScroll());
-    });
-    emblaApi.on("reInit", onScroll);
-  }, [emblaApi, onScroll]);
+  const tweenValues = useCarouselTweenValues(emblaApi);
+  const selectedIndex = useCarouselSelectedIndex(emblaApi);
 
   return (
     <Container ref={emblaRef}>
       <Content>
-        {cards.map((card, index) => (
+        {videos.map((video, index) => (
           <VideoCard
-            key={card.id}
-            {...card}
+            key={video.id}
             isSelected={selectedIndex === index}
             scaling={tweenValues[index]}
+            {...video}
           />
         ))}
       </Content>
