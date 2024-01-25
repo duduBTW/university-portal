@@ -7,6 +7,9 @@ export type Media = {
   id: number;
   title: string;
   thumbnail: string;
+  source: string;
+  type: string;
+  description?: string;
 };
 
 export type Material = {
@@ -14,7 +17,7 @@ export type Material = {
   title: string;
   thumbnail: string;
   type: "pdf" | "html";
-  url: string;
+  source: string;
 };
 
 export type Course = {
@@ -27,9 +30,7 @@ export type Course = {
 };
 
 export async function fetchCouse(): Promise<Course> {
-  return await fetch(
-    "https://cdn.discordapp.com/attachments/797960883891601408/1198656973898518539/data.json?ex=65bfb34c&is=65ad3e4c&hm=c49c89071fa2efdba1bc92feba98b47ebea32984004189ce862ed529f5d61303&"
-  )
+  return await fetch("/assets/data.json")
     .then((res) => res.json())
     .catch();
 }

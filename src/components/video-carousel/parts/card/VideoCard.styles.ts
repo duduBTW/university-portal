@@ -49,6 +49,7 @@ export const Container = styled(Link).withConfig({
   gap: 12px;
   transition: opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: visible;
+  width: min-content;
 
   &:hover {
     ${Thumbnail} {

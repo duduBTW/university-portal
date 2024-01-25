@@ -7,21 +7,31 @@ import {
 } from "./VideoCard.styles";
 import SlideInButton from "../../../slide-in-button/SlideInButton";
 import linearScale from "../../../../utils/linear-scale";
+import { Media } from "../../../../data/fetcher";
+import useCourse from "../../../../data";
+import { useVideoUrl } from "../../../../utils/path";
 
 type VideoCardProps = {
   scaling?: number;
-  title: string;
-  isSelected: boolean;
-  thumbnail: string;
+  isSelected?: boolean;
+  video: Media;
 };
 
 function VideoCard(props: VideoCardProps) {
-  const { thumbnail, title, isSelected, scaling = 1 } = props;
+  const {
+    isSelected = true,
+    scaling = 0,
+    video: { thumbnail, title, id },
+    video,
+  } = props;
+
+  const videoUrl = useVideoUrl(video);
+
   const [isHovering, setIsHovering] = useState(false);
 
   return (
     <Container
-      to="video"
+      to={videoUrl}
       style={{
         opacity: Math.max(scaling, 0.32),
       }}

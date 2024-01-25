@@ -8,6 +8,22 @@ const GlobalStyle = createGlobalStyle`
   body {
     overflow-x: hidden;
     font-family: Nunito;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
   }
   
   h1, h2, h3, h4, p {
@@ -19,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
     --text-900: rgba(0, 0, 0, 0.92);
     --text-800: rgba(0, 0, 0, 0.82);
     --text-700: rgba(0, 0, 0, 0.72);
+    --text-600: rgba(0, 0, 0, 0.62);
 
     --brand: #C0081E;
     --brand-light: rgba(192, 8, 30, 0.24);

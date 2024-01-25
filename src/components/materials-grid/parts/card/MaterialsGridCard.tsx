@@ -18,7 +18,7 @@ function MaterialGridCard(props: MaetrialGridCardProps) {
 
   return (
     <Container
-      to="material"
+      to="material/1"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >

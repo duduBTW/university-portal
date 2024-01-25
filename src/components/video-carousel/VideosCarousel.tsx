@@ -31,7 +31,7 @@ function VideosCarousel(props: VideosCarouselProps) {
             key={video.id}
             isSelected={selectedIndex === index}
             scaling={tweenValues[index]}
-            {...video}
+            video={video}
           />
         ))}
       </Content>
