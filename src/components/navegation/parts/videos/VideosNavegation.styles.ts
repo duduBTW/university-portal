@@ -13,7 +13,6 @@ export const Video = styled(Link)<VideoStyleProps>`
   align-items: center;
   gap: 12px;
   padding: 8px 16px;
-
   background-color: ${({ isActive }) => (isActive ? "#faeff1" : "none")};
 
   &:hover {

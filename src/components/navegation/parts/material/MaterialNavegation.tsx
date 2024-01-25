@@ -1,23 +1,32 @@
 import { useParams } from "react-router";
-import { Material } from "../../../../data/fetcher";
+import { Course } from "../../../../data/fetcher";
 import { Container, MaterialItem } from "./MaterialNavegation.styles";
+import { getMaterialUrl } from "../../../../utils/path";
 
 type MaterialNavegationProps = {
-  materials: Material[];
+  course: Course;
 };
 
 function MaterialNavegation(props: MaterialNavegationProps) {
-  const { materials } = props;
-  const { materialId } = useParams();
+  const {
+    course: {
+      materials: { content: materials },
+    },
+    course,
+  } = props;
+  const { materialId: currentMaterialId } = useParams();
 
-  const content = materials.map((material) => (
-    <MaterialItem
-      key={material.id}
-      isActive={materialId === String(material.id)}
-    >
-      {material.title}
-    </MaterialItem>
-  ));
+  const content = materials.map((material) => {
+    return (
+      <MaterialItem
+        to={getMaterialUrl(course, material)}
+        key={material.id}
+        isActive={currentMaterialId === String(material.id)}
+      >
+        {material.title}
+      </MaterialItem>
+    );
+  });
 
   return <Container>{content}</Container>;
 }

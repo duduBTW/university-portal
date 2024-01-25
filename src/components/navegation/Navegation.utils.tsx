@@ -28,9 +28,7 @@ const NAVEGATION_MAP = {
     unresolvedPath: "/:id/material/:materialId",
     icon: "ri-file-4-line",
     to: "material/1",
-    element: (course) => (
-      <MaterialNavegation materials={course.materials.content} />
-    ),
+    element: (course) => <MaterialNavegation course={course} />,
     title: (course) => course.materials.title,
   },
 } satisfies Record<string, NavegationItem>;
