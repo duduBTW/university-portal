@@ -7,7 +7,7 @@ export const Container = styled.div`
   max-width: 1200px;
   width: 100%;
   padding: 40px 20px;
-  margin-left: auto;
+  margin: 0 auto;
 `;
 export const BottomBar = styled.div`
   position: absolute;

@@ -7,10 +7,13 @@ type ContainerStyleProps = {
 
 export const ThumbnailWrapper = styled.div`
   position: relative;
+  width: min(calc(100vw - 40px), 400px);
+  aspect-ratio: 16 / 9;
 `;
 export const Thumbnail = styled.img`
-  max-width: min(calc(100vw - 40px), 400px);
+  height: 100%;
   aspect-ratio: 16 / 9;
+  width: min(calc(100vw - 40px), 400px);
   border-radius: 12px;
   object-fit: cover;
   user-select: none;

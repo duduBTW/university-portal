@@ -99,7 +99,7 @@ function Media() {
         </Video>
       )}
 
-      {hovering && (
+      {/* {hovering && (
         <BottomBar
           onClick={(e) => {
             e.stopPropagation();
@@ -145,7 +145,7 @@ function Media() {
             max="100"
           />
         </BottomBar>
-      )}
+      )} */}
     </VideoWrapper>
   );
 }
