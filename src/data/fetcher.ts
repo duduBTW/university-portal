@@ -21,7 +21,7 @@ export type Material = {
 };
 
 export type Course = {
-  id: number;
+  id: string;
   name: string;
   description: string;
   semester: number;
@@ -29,8 +29,20 @@ export type Course = {
   materials: CouseSection<Material>;
 };
 
-export async function fetchCouse(): Promise<Course> {
-  return await fetch("/assets/data.json")
-    .then((res) => res.json())
-    .catch();
+export async function fetchCouse(id: unknown): Promise<Course> {
+  if (typeof id !== "string" || !id) {
+    throw new Error("Invalid course id");
+  }
+
+  const fileExists = await fetch(`/assets/${id}.json`, { method: "HEAD" }).then(
+    (res) => {
+      return res.status === 200;
+    }
+  );
+
+  if (!fileExists) {
+    throw new Error("Course not found");
+  }
+
+  return await fetch(`/assets/${id}.json`).then((res) => res.json());
 }

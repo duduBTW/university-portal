@@ -17,7 +17,8 @@ export const Thumbnail = styled.img`
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   aspect-ratio: 9 / 13;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 20px;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 `;
 export const Container = styled(Link)`

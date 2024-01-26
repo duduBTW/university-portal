@@ -1,15 +1,24 @@
-import { createBrowserRouter, defer, useRouteError } from "react-router-dom";
+import {
+  LoaderFunctionArgs,
+  createBrowserRouter,
+  defer,
+  useRouteError,
+} from "react-router-dom";
 import HomePage from "./home/HomePage";
 import { fetchCouse } from "../data/fetcher";
 import Layout from "./layout/Layout";
 import VideosPage from "./videos/VideosPage";
 import MaterialsPage from "./material/MaterialsPage";
+import Button from "../components/button/Button";
+import GlobalStyle from "./layout/globalStyles";
+import HomeBackgroundEffect from "./home/parts/background/HomeBackground";
+import GlobalErrorMessage from "./global-error/GlobalErrorMessage";
 
 export const COURSE_ROUTE_ID = "course";
 
-async function couseLoader() {
+async function couseLoader({ params }: LoaderFunctionArgs) {
   return defer({
-    course: fetchCouse(),
+    course: fetchCouse(params.id),
   });
 }
 
@@ -23,6 +32,7 @@ const router = createBrowserRouter([
     path: "/:id",
     loader: couseLoader,
     Component: Layout,
+    ErrorBoundary: GlobalErrorMessage,
     children: [
       {
         id: "home",
@@ -50,5 +60,7 @@ function ErrorBoundary() {
   // Uncaught ReferenceError: path is not defined
   return <div>Smt went wrongeee</div>;
 }
+
+function MainErrorBoundary() {}
 
 export default router;

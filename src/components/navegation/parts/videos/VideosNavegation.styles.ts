@@ -20,7 +20,7 @@ export const Video = styled(Link)<VideoStyleProps>`
   }
 `;
 export const Thumbnail = styled.img`
-  width: 80px;
+  width: 88px;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 4px;

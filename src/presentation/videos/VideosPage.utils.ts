@@ -1,6 +1,8 @@
+import { useParams } from "react-router";
 import useCourse from "../../data";
 
-export function useVideo(videoId: string | undefined) {
+export function useVideo() {
+  const { videoId } = useParams();
   const { media } = useCourse();
 
   const video = media.content.find((video) => String(video.id) === videoId);

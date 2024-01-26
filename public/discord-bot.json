@@ -1,0 +1,78 @@
+{
+  "id": "discord-bot",
+  "name": "How to Make a Discord Bot with discord.js",
+  "semester": 1,
+  "description": "<p>Announcing the Coding Train discord! <a href='http://thecodingtrain.com/discord'>http://thecodingtrain.com/discord</a>. Come and join the community to meet viewers, share pictures of your pets, and get help with your code!</p> <p>This series will teach you how to code your very first Discord bot with node.js and discord.js.</p>",
+  "media": {
+    "title": "Videos",
+    "content": [
+      {
+        "id": 1,
+        "title": "Discord Bots 1: Introduction",
+        "thumbnail": "https://i3.ytimg.com/vi/7A-bnPlxj4k/maxresdefault.jpg",
+        "source": "7A-bnPlxj4k",
+        "type": "youtube",
+        "description": "Introducing a new series: How to Make a Discord bot! This video covers the tools I plan to use to create and code a Discord bot."
+      },
+      {
+        "id": 2,
+        "title": "Discord Bots 2: Discord Developer Portal",
+        "thumbnail": "https://i3.ytimg.com/vi/ibtXXoMxaho/maxresdefault.jpg",
+        "source": "ibtXXoMxaho",
+        "type": "youtube",
+        "description": "In this video I demonstrate how use the discord developer portal to create a bot application and add it to a specific discord server using the client id."
+      },
+      {
+        "id": 3,
+        "title": "Discord Bots 3: Coding a Bot with discord.js",
+        "thumbnail": "https://i3.ytimg.com/vi/8k-zyUyuvlM/maxresdefault.jpg",
+        "source": "8k-zyUyuvlM",
+        "type": "youtube",
+        "description": "It's finally time to write some code! In this video, I demonstrate the very basics of coding a 'hello world'-style bot with discord.js."
+      },
+      {
+        "id": 4,
+        "title": "Discord Bots 4: Hiding API Keys with .env",
+        "thumbnail": "https://i3.ytimg.com/vi/G2Yns7NUSq4/maxresdefault.jpg",
+        "source": "G2Yns7NUSq4",
+        "type": "youtube",
+        "description": "In this video I demonstrate how to use the node dotenv package along with a .env file to store (and hide!) API keys outside of the source code."
+      },
+      {
+        "id": 5,
+        "title": "Discord Bots 5: Posting GIFs",
+        "thumbnail": "https://i3.ytimg.com/vi/G2Yns7NUSq4/maxresdefault.jpg",
+        "source": "https://i3.ytimg.com/vi/9P1rB2MY4ZA/maxresdefault.jpg",
+        "type": "youtube",
+        "description": "In this video, I demonstrate how to post GIFs to Discord from a bot."
+      },
+      {
+        "id": 6,
+        "title": "Discord Bots 5: Posting GIFs",
+        "thumbnail": "https://i3.ytimg.com/vi/B60Q74FHFBQ/maxresdefault.jpg",
+        "source": "B60Q74FHFBQ",
+        "type": "youtube",
+        "description": "In this video I demonstrate how to manage multiple Discord bot commands with 'a command handler' built with CommonJS and require() in node.js.💻"
+      }
+    ]
+  },
+  "materials": {
+    "title": "Your study materials",
+    "content": [
+      {
+        "id": 1,
+        "title": "Discordjs docs",
+        "thumbnail": "https://camo.githubusercontent.com/94402c561f7851d7d3c899ea70b282bd177f344319f08cb1d743de36f00cf020/68747470733a2f2f646973636f72642e6a732e6f72672f7374617469632f6c6f676f2e737667",
+        "type": "html",
+        "source": "/assets/discord-js-docs.html"
+      },
+      {
+        "id": 2,
+        "title": "A Comprehensive Review on Bot - Discord Bot",
+        "thumbnail": "/assets/A_Comprehensive_Review_on_Bot_Discord_Bo.jpg",
+        "type": "pdf",
+        "source": "https://d1wqtxts1xzle7.cloudfront.net/89967831/CSEIT2172100-libre.pdf?1660983993=&response-content-disposition=inline%3B+filename%3DA_Comprehensive_Review_on_Bot_Discord_Bo.pdf&Expires=1706307131&Signature=Lh-X2lSMOqf9ErRjCrOeM4~FTLlNqvafdEYaYFCh0ZwUg0mIZn3JNjXuKqGah27NkHvrY1s6hE9tpAFdMr-XjfISXLQvyj-ZGdUM7DqYrIPsvo23QBeq~JtRyiVub8yCX7336uKXl1mPruZCsoyaflJ-6k6abnq1c3Y7h1NY5NWkVyLSSEahy5fue0N9i3WCe26WTGqbzVF7wAZyEBQ9UcOfVZtcMGKOtqi7upxPis~UwTLOpvGRWlLudQjAXVW8quCHoLdptKLX5RtD04WxZe-h269Vjy~NR24-iZ7looDhv-vIW--~ZziHtNocR-j8yWTpUj-rZcub3OsXt~LUfw__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA"
+      }
+    ]
+  }
+}

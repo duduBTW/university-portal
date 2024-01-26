@@ -34,11 +34,14 @@ export const Title = styled.h1`
   font-weight: 700;
   line-height: 28px;
 `;
-export const Description = styled.p`
+export const Description = styled.div`
   color: var(--text-700);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 160%;
+  line-height: 24px;
   max-width: 80ch;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 `;

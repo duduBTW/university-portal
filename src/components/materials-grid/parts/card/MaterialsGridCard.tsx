@@ -7,18 +7,21 @@ import {
   Title,
 } from "./MaterialsGridCard.styles";
 import SlideInButton from "../../../slide-in-button/SlideInButton";
+import { getMaterialUrl } from "../../../../utils/path";
+import useCourse from "../../../../data";
 
 export type MaetrialGridCardProps = {
   material: Material;
 };
 
 function MaterialGridCard(props: MaetrialGridCardProps) {
+  const course = useCourse();
   const { title, thumbnail } = props.material;
   const [isHovering, setIsHovering] = useState(false);
 
   return (
     <Container
-      to="material/1"
+      to={getMaterialUrl(course, props.material)}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >

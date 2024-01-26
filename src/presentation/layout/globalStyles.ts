@@ -8,13 +8,17 @@ const GlobalStyle = createGlobalStyle`
   body {
     overflow-x: hidden;
     font-family: Nunito;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    -ms-overflow-style:none;
   }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
 
   ul {
     padding: 0;
