@@ -31,8 +31,8 @@ function SectionError(props: React.ComponentProps<"div">) {
     });
   };
 
-  const xOffset = linearScale(position.x, [0, 1], [12, -12]);
-  const yOffset = linearScale(position.y, [0, 1], [12, -12]);
+  const xOffset = linearScale(position.x, [0, 1], [-12, 12]);
+  const yOffset = linearScale(position.y, [0, 1], [-12, 12]);
   const opacity = linearScale(position.y, [0, 1], [0.6, 1]);
   const style: React.CSSProperties = {
     transform: `translate(${xOffset}px, ${yOffset}px) scale(1.1)`,
