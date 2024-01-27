@@ -9,7 +9,14 @@ import { Material } from "../../data/fetcher";
 function MaterialsPage() {
   const { id, source, type } = useMaterial();
   const [htmlReader] = useAsyncResource(
-    () => fetch(source).then((res) => res.text()),
+    () =>
+      fetch(source).then((res) => {
+        if (res.status !== 200) {
+          throw new Error("");
+        }
+
+        return res.text();
+      }),
     []
   );
 

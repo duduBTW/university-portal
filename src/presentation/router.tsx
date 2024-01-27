@@ -12,7 +12,8 @@ import MaterialsPage from "./material/MaterialsPage";
 import Button from "../components/button/Button";
 import GlobalStyle from "./layout/globalStyles";
 import HomeBackgroundEffect from "./home/parts/background/HomeBackground";
-import GlobalErrorMessage from "./global-error/GlobalErrorMessage";
+import GlobalErrorMessage from "./error/Global/GlobalErrorMessage";
+import MaterialError from "./material/parts/Error/MaterialError";
 
 export const COURSE_ROUTE_ID = "course";
 
@@ -43,13 +44,14 @@ const router = createBrowserRouter([
         path: "video/:videoId",
         id: "video",
         Component: VideosPage,
-        ErrorBoundary,
+        ErrorBoundary: MaterialError,
+        hasErrorBoundary: true,
       },
       {
         path: "material/:materialId",
         id: "material",
         Component: MaterialsPage,
-        ErrorBoundary,
+        ErrorBoundary: MaterialError,
       },
     ],
   },

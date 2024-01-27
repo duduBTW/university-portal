@@ -2,6 +2,7 @@ import Button from "../../../../components/button/Button";
 import { Video, MediaError } from "./LocalMedia.styles";
 import { useVideo } from "../../VideosPage.utils";
 import { useRef, useState } from "react";
+import SectionError from "../../../error/Section/SectionError";
 
 function LocalMedia() {
   const { source, type, thumbnail } = useVideo();
@@ -35,10 +36,11 @@ function LocalMedia() {
 
   if (error) {
     return (
-      <MediaError>
-        <h2>Something went wrong!</h2>
-        <Button onClick={() => setError(false)}>Try again!</Button>
-      </MediaError>
+      <SectionError>Video failed to load</SectionError>
+      // <MediaError>
+      //   <h2>Something went wrong!</h2>
+      //   <Button onClick={() => setError(false)}>Try again!</Button>
+      // </MediaError>
     );
   }
 

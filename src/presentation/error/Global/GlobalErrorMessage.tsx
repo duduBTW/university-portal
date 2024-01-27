@@ -1,6 +1,6 @@
-import HomeBackgroundEffect from "../home/parts/background/HomeBackground";
-import GlobalStyle from "../layout/globalStyles";
-import Button from "../../components/button/Button";
+import HomeBackgroundEffect from "../../home/parts/background/HomeBackground";
+import GlobalStyle from "../../layout/globalStyles";
+import Button from "../../../components/button/Button";
 import { Container, Description } from "./GlobalErrorMessage.style";
 import { Link } from "react-router-dom";
 

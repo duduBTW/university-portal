@@ -3,14 +3,15 @@ import { sanitize } from "dompurify";
 import { Container } from "./Html.styles";
 
 type MaterialHtmlProps = {
-  src: () => string;
+  src: string | (() => string);
 };
 
 function MaterialHtml(props: MaterialHtmlProps) {
   const { src } = props;
-  const htmlContent = src();
 
   const shadowContainerRef = useRef<HTMLDivElement>(null);
+
+  const htmlContent = typeof src === "string" ? src : src();
 
   useEffect(() => {
     const shadowContainer = shadowContainerRef.current;
